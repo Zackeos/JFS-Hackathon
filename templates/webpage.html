@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body{
+        background: #f46b45;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(25, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .div1 { grid-area: 2 / 9 / 6 / 10; }
+    .div2 { grid-area: 3 / 10 / 7 / 17; }
+    .div3 { grid-area: 2 / 17 / 6 / 18; }
+    .div4 { grid-area: 7 / 13 / 13 / 14; }
+    .div5 { grid-area: 11 / 14 / 15 / 16; }
+    .div6 { grid-area: 11 / 11 / 15 / 13; }
+.div7 { grid-area: 8 / 14 / 9 / 20; }
+.div8 { grid-area: 8 / 7 / 9 / 13; }
+.div9 { grid-area: 6 / 7 / 7 / 8; }
+.div10 { grid-area: 7 / 8 / 8 / 9; }
+.div11 { grid-area: 10 / 7 / 11 / 8; }
+.div12 { grid-area: 9 / 8 / 10 / 9; }
+.div13 { grid-area: 7 / 18 / 8 / 19; }
+.div14 { grid-area: 6 / 19 / 7 / 20; }
+.div15 { grid-area: 9 / 18 / 10 / 19; }
+.div16 { grid-area: 10 / 19 / 11 / 20; }
+.div17 { grid-area: 4 / 11 / 5 / 13; }
+.div18 { grid-area: 4 / 14 / 5 / 16; }
+.div19 { grid-area: 6 / 12 / 7 / 15; }
+.div20 { grid-area: 13 / 20 / 15 / 25; 
+border-radius: 10px;}
+.div21 { grid-area: 13 / 2 / 15 / 7;
+    border-radius: 10px; }
+.divbot{
+    background-color: purple;
+}
+.bottons{
+    background-color: blue;
+    font-size: 50px;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="parent">
+        <div class="div1 divbot"> </div>
+        <div class="div2 divbot" style="overflow:hidden;"> </div>
+        <div class="div3 divbot"> </div>
+        <div class="div4 divbot"></div>
+        <div class="div5 divbot"> </div>
+        <div class="div6 divbot"> </div>
+        <div class="div7 divbot"> </div>
+        <div class="div8 divbot"> </div>
+        <div class="div9 divbot"> </div>
+        <div class="div10 divbot"> </div>
+        <div class="div11 divbot"> </div>
+        <div class="div12 divbot"> </div>
+        <div class="div13 divbot"> </div>
+        <div class="div14 divbot"> </div>
+        <div class="div15 divbot"> </div>
+        <div class="div16 divbot"> </div>
+        <div class="div17" style="background-color: black;" > </div>
+        <div class="div18" style="background-color: black; " > </div>
+        <div class="div19" style="background-color: red; "> 
+            <!-- <input type="text" placeholder="Please enter the URL here"> -->
+        </div>
+        <div class="div20 bottons" style="display: flex; justify-content: center; align-items: center; " >
+            <button type="button" class="btn btn-primary" onclick="sayItFactCheck()"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                checkfact
+            </button>
+        </div>
+        <div class="div21 bottons" style="display: flex; justify-content: center; align-items: center;"> 
+            <button type="button" class="btn btn-primary" onclick="sayItCleaner()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Cleaner
+            </button>
+        </div>
+        </div>
+        <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Please enter the URL here</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" placeholder="enter the URL here" id="text">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  onclick="send()">send</button>
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script >
+    var whichOnOfFunction=0
+    function sayItFactCheck(){
+        whichOnOfFunction=1
+    }
+    function sayItCleaner(){
+        whichOnOfFunction=0
+    }
+    function send(){
+        if (whichOnOfFunction == 0){
+            console.log(whichOnOfFunction)
+            var values = document.getElementById("text").value
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "./getwords", true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(JSON.stringify(values));
+            xhttp.onload = function(){
+            var badwords = JSON.parse(this.responseText);
+            document.getElementById("result").innerHTML = badwords
+        }
+        }else{
+            var values = document.getElementById("text").value
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "./factcheck", true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(JSON.stringify(values));
+            xhttp.onload = function(){
+            var badwords = JSON.parse(this.responseText);
+
+        }
+
+        }
+        
+    }
+    
+
+</script>
+</html>
